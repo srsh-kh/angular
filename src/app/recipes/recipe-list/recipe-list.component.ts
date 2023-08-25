@@ -15,7 +15,7 @@ export class RecipeListComponent implements OnInit {
       'https://www.add1tbsp.com/wp-content/uploads/2021/10/20210926-Epic-BoneBroth-TortillaSoup3650-1024x1536.jpg'
     ),
     new Recipe(
-      'A Test Recipe',
+      'Another Test Recipe',
       'This is simply a test',
       'https://www.add1tbsp.com/wp-content/uploads/2021/10/20210926-Epic-BoneBroth-TortillaSoup3650-1024x1536.jpg'
     ),
