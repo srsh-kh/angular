@@ -4,8 +4,12 @@
     <!-- <div class="alert alert-danger" *ngIf="error">
       <p>{{ error }}</p>
     </div> -->
-    <!-- <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert> -->
-    <div *ngIf="isLoading" style="text-align: center">
+    <!-- <app-alert
+      [message]="error"
+      *ngIf="error"
+      (close)="onHandleError()"
+    ></app-alert> -->
+    <div *ngIf="isLoading" style="text-align: center;">
       <app-loading-spinner></app-loading-spinner>
     </div>
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
@@ -39,11 +43,11 @@
           type="submit"
           [disabled]="!authForm.valid"
         >
-          {{ isLoginMode ? "Login" : "Sign Up" }}
+          {{ isLoginMode ? 'Login' : 'Sign Up' }}
         </button>
         |
         <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
-          Switch to {{ isLoginMode ? "Sign Up" : "Login" }}
+          Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
         </button>
       </div>
     </form>

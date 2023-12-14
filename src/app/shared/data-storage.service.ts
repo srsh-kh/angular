@@ -21,7 +21,7 @@ export class DataStorageService {
         'https://ng-course-recipe-book-5de81-default-rtdb.firebaseio.com/recipes.json',
         recipes
       )
-      .subscribe((response) => {
+      .subscribe(response => {
         console.log(response);
       });
   }
@@ -32,15 +32,15 @@ export class DataStorageService {
         'https://ng-course-recipe-book-5de81-default-rtdb.firebaseio.com/recipes.json'
       )
       .pipe(
-        map((recipes) => {
-          return recipes.map((recipe) => {
+        map(recipes => {
+          return recipes.map(recipe => {
             return {
               ...recipe,
-              ingredients: recipe.ingredients ? recipe.ingredients : [],
+              ingredients: recipe.ingredients ? recipe.ingredients : []
             };
           });
         }),
-        tap((recipes) => {
+        tap(recipes => {
           this.recipeService.setRecipes(recipes);
         })
       );

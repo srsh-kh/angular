@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
-import { throwError, Subject, BehaviorSubject } from 'rxjs';
+import { throwError, BehaviorSubject } from 'rxjs';
 
 import { User } from './user.model';
-import { Router } from '@angular/router';
 
 export interface AuthResponseData {
   kind: string;
@@ -30,12 +30,12 @@ export class AuthService {
         {
           email: email,
           password: password,
-          returnSecureToken: true,
+          returnSecureToken: true
         }
       )
       .pipe(
         catchError(this.handleError),
-        tap((resData) => {
+        tap(resData => {
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -53,12 +53,12 @@ export class AuthService {
         {
           email: email,
           password: password,
-          returnSecureToken: true,
+          returnSecureToken: true
         }
       )
       .pipe(
         catchError(this.handleError),
-        tap((resData) => {
+        tap(resData => {
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -107,7 +107,6 @@ export class AuthService {
   }
 
   autoLogout(expirationDuration: number) {
-    console.log(expirationDuration);
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
